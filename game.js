@@ -91,7 +91,7 @@ function gameEnd(winningPlayer) {
     for (var row = 0; row < 7; row++) {
       $('h3').fadeOut('fast');
       $('h2').fadeOut('fast');
-      $('h1').text(winningPlayer+" has won! Refresh your browser to play again!").css("fontSize", "50px")
+      $('h1').text(winningPlayer+" has won!").css("fontSize", "50px");
     }
   }
 }
@@ -100,17 +100,20 @@ var currentPlayer = 1;
 var currentName = player1;
 var currentColor = player1Color;
 
-$('h3').text(player1+" it is your turn!")
+$('h3').text(player1+" it is your turn!");
 
-$('board button').on('click', function(){
-    var col = $(this).closest('td').index();
+$('.board button').on('click',function(){
+
+    var col = $(this).closest("td").index();
     var bottomAvail = checkBottom(col);
     changeColor(bottomAvail,col,currentColor);
+
     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()) {
         gameEnd(currentName);
     }
 
     currentPlayer = currentPlayer * -1;
+
     if(currentPlayer === 1){
         currentName = player1;
         $('h3').text(currentName+ " it is your turn");
