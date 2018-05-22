@@ -9,8 +9,8 @@ var table = $('table tr');
 
 function reportWin(rowNum, colNum) {
     console.log("You won starting at this row and column");
-    console.console.log(rowNum);
-    console.console.log(colNum);
+    console.log(rowNum);
+    console.log(colNum);
 
 }
 
